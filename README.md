@@ -283,7 +283,7 @@ sagemaker._deploy(
 
 ## Feedback
 
-If you have any feedback, please reach out to me at jithsasikumar@gmail.com
+If you have any feedback, please reach out to me at moulichandramouli81@gmail.com
 
 ## Bug / Issues
 

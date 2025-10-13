@@ -7,7 +7,7 @@ This project promulgates an **automated end-to-end ML pipeline** that trains a *
 
 ## Author
 
-- [@Jithin Sasikumar](https://www.github.com/Jithsaavvy)
+- [@JChandra_mouli](https://www.github.com/kcm5750)
 
 ## Languages and Tools
 

@@ -287,7 +287,7 @@ If you have any feedback, please reach out to me at moulichandramouli81@gmail.co
 
 ## Bug / Issues
 
-If you come across any bugs (or) issues related to code, model, implementation, results, pipeline etc, please feel free to open a [new issue here](https://github.com/Jithsaavvy/Sentiment-analysis-from-MLOps-paradigm/issues/new) by describing your search query and expected result.
+If you come across any bugs (or) issues related to code, model, implementation, results, pipeline etc, please feel free to open a [new issue here](https://github.com/kcm5750/Sentiment-analysis/issues/new) by describing your search query and expected result.
 
 ## References
 

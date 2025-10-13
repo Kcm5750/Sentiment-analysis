@@ -7,7 +7,7 @@ This project promulgates an **automated end-to-end ML pipeline** that trains a *
 
 ## Author
 
-- [@JChandra_mouli](https://www.github.com/kcm5750)
+- [@Chandra_mouli](https://www.github.com/kcm5750)
 
 ## Languages and Tools
 

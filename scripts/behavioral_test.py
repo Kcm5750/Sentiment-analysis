@@ -1,5 +1,4 @@
 """
-@author: Jithin Sasikumar
 
 Module to define and perform behavioral testing of sentiment analysis model. It is based on
 the paper [1] that proposes three different types of tests but only two tests are performed
@@ -7,7 +6,6 @@ in this project namely -
     - Minimum Functionality test (MFT)
     - Invariance test (INV)
 
-Note
 ----
     Model testing differs from model evaluation.
 

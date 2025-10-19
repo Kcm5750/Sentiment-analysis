@@ -1,6 +1,4 @@
 """
-@author: Jithin Sasikumar
-
 Module to transform preprocessed dataframe (parquet or csv) into tf.data.Dataset format
 which creates an efficient input pipeline that in turn be fed into the tensorflow model.
 BERT tokenizer is used instead of normal tokenizer for better embeddings.

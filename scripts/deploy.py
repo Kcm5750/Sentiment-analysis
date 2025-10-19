@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 
 """
-@author: Jithin Sasikumar
-
 Script to deploy productionalized model into AWS Sagemaker. The production model
 from MLflow model registry in EC2 instance is packaged into a docker image as a
 deployable model artifact and pushed into Amazon ECR. The deployable image from

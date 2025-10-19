@@ -1,6 +1,4 @@
 """
-@author: Jithin Sasikumar
-
 Module consisting of helper functions which is generic across the project.
 """
 

@@ -1,6 +1,4 @@
 """
-@author: Jithin Sasikumar
-
 Module to track model training and log the model artifacts, resulting metrics
 and parameters. For that purpose, `MLFlow` is used. This module has the flexibility
 to extend its functionality to support other tracking mechanism like tensorboard etc.

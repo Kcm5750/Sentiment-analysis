@@ -1,6 +1,4 @@
 """
-@author: Jithin Sasikumar
-
 Model to define deep neural network for training.
 
 Bi-directional LSTM (biLSTM) network is used for this project encompassing an

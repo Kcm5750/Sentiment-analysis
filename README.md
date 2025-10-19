@@ -6,7 +6,7 @@
 This project promulgates an **automated end-to-end ML pipeline** that trains a **bi-directional LSTM** network for sentiment analysis task, **tracks** experiments, **pushes** trained models to **model registry**, benchmark them by means of **model testing** and **evaluation**, pushes the best model into production followed by **dockerizing** the production model artifacts into a deployable image and **deploys** the same into cloud instance via **CI/CD**. 
 
 ## Author
-
+ 
 - [@Chandra_mouli](https://www.github.com/kcm5750)
 
 ## Languages and Tools

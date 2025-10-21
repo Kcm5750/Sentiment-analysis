@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 """
-@author: Jithin Sasikumar
 
 Script to define model training pipeline as Airflow DAG that trains Bi-LSTM model with the
 processed data from data warehouse. In the DAG, in order to improve the training time and

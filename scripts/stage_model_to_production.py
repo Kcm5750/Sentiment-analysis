@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 
 """
-@author: Jithin Sasikumar
-
 Script to productionalize the best model. The models (latest, production) from the
 MLflow model registry in EC2 instance are pulled and benchmarked by means of
 behavioral testing and evaluation. As a result, the best performing model is

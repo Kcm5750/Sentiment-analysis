@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 
 """
-@author: Jithin Sasikumar
-
 Script to define the data pipeline as Airflow DAG that performs ETL (Extract Load Transform) tasks such as
 scraping tweets from twitter, labelling, cleaning, normalizing and preprocessing the raw data to be used
 for analysis and model training on scheduled interval.

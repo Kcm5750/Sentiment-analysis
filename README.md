@@ -6,22 +6,7 @@ This project is an end‑to‑end sentiment analysis system that ingests raw Twi
  
 - [@Chandra_mouli](https://www.github.com/kcm5750)
 
-## Languages and Tools
 
-<div align="">
-<a href="https://www.python.org" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/></a>
-<a href="https://www.tensorflow.org" target="_blank" rel="noreferrer"><img src="https://www.vectorlogo.zone/logos/tensorflow/tensorflow-icon.svg" alt="tensorflow" width="40" height="40"/></a>
-<a href="https://www.docker.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="docker" width="40" height="40"/></a>
-<a href="https://airflow.apache.org/" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/AirflowLogo.png/1200px-AirflowLogo.png" alt="airflow" width="95" height="43"/></a>
-<a href="https://github.com/features/actions" target="_blank" rel="noreferrer"> <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--2mFgk66y--/c_limit,f_auto,fl_progressive,q_80,w_375/https://dev-to-uploads.s3.amazonaws.com/uploads/badge/badge_image/78/github-actions-runner-up-badge.png" alt="actions" width="52" height="49"/></a>
-<a href="https://www.mlflow.org/docs/latest/python_api/mlflow.html" target="_blank" rel="noreferrer"> <img src="https://www.mlflow.org/docs/latest/_static/MLflow-logo-final-black.png" alt="mlflow" width="98" height="44"/></a>
-<a href="https://aws.amazon.com/s3/" target="_blank" rel="noreferrer"> <img src="https://www.liblogo.com/img-logo/aw314s096-aws-s3-logo-setting-up-aws-s3-for-open-edx-blog.png" alt="s3" width="73" height="44"/></a> 
-<a href="https://aws.amazon.com/ec2/" target="_blank" rel="noreferrer"> <img src="https://www.filepicker.io/api/file/sBtCHoB8TwiRNve8nRRp" alt="ec2" width="81" height="44"/></a> 
-<a href="https://aws.amazon.com/ecr/" target="_blank" rel="noreferrer"> <img src="https://sysdig.es/wp-content/uploads/logo-amazon-ecr-885x240-1.png" alt="ecr" width="145" height="41"/></a>
-<a href="https://aws.amazon.com/sagemaker/" target="_blank" rel="noreferrer"> <img src="https://miro.medium.com/max/800/1*Epd215c8urNyJ_DJqkKHJg.png" alt="sagemaker" width="115" height="50"/></a> 
-<a href="https://aws.amazon.com/sagemaker/" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Snowflake_Logo.svg/2560px-Snowflake_Logo.svg.png" alt="sagemaker" width="110" height="37"/></a> 
-</div>
-<br>
 
 ## Project summary
 
@@ -59,24 +44,6 @@ The project is a concoction of research (sentiment analysis, NLP, BERT, biLSTM),
 | ![flowchart](./images/architecture_diagram.jpeg) |
 |:--:|
 | <b>Figure 1: Complete end-to-end project pipeline</b>|
-
-## Technical facets
-
-1. Setting up `Airflow` in docker for `workflow orchestration`.
-2. Writing a `Dockerfile` that creates a base docker image with all dependencies installed and secrets containing sensitive credentials and access tokens are mounted.
-2. Defining `ETL` and `model training` workflow followed by scheduling them for orchestration.
-3. Executing `Airflow DAGs`:
-    - **ETL** - Performs Extract, Transform and Load operation on twitter data. As a result, raw tweets scraped from twitter are processed and loaded into `Snowflake data warehouse` as database table.
-    - **Model_training** - Deep end-to-end `biLSTM` model is trained using `Tensorflow` by fetching processed data from data warehouse.
-4. Tracking the entire model training using `MLflow server` hosted on `AWS EC2 instance` from which trained model artifacts, metrics and parameters are logged.
-5. Using `AWS S3 buckets` to store the model artifacts and data.
-6. Adding the trained model to `MLflow model registry` on `AWS EC2 instance` that facilitates in managing, maintaining, versioning, staging, testing and productionalizing the model collaboratively.
-7. Automating the `pipeline` as follows:
-    - Initialize `GitHub Actions` workflows.
-    - `benchmark_and_test_model.yml` => In order to productionalize a model, simply evaluating the model is not sufficient. So, it is very important to test them. Thus, the best model is pushed into **production stage** by means of **benchmarking** (`behavioral testing` + evaluation).
-    - `deploy.yml` => The production model from model registry in `EC2 instance` is packaged into a docker image with all required dependencies & metadata as a `deployable model artifact` and pushed into `Amazon ECR` **(CI job)**. The deployable image is then deployed into `AWS Sagemaker` instance which creates an **endpoint** that can be used to communicate with the model for inference **(CD job)**.
-    - `run_dags.yml` - Triggers Airflow DAG run that performs ETL and model training task based on schedule.
-    -  `release.yml` => A new release will be created automatically when tags are pushed to the repository.
 
 
 ## Directory structure
@@ -120,22 +87,6 @@ The project is a concoction of research (sentiment analysis, NLP, BERT, biLSTM),
 ```
 
 ## Pipeline
-### Dependencies & Secrets management
-
-As mentioned above, Airflow is running in a docker container. In order to install dependencies, a docker image is build with all installed dependencies and it will be used as a base image for `docker-compose`. The dependencies are listed in [requirements.txt](./dependencies/requirements.txt). A more better way would be, to use any kind of dependency management tools like **Poetry** for organizational projects but, it is out of scope  for this project.
-
-One important challenge would be, to manage &  handle sensitive information such as **credentials, access tokens** etc needed for Airflow to connect with other services like `AWS S3`, `Snowflake`, `EC2`. It is vulnerable to use any such sensitive info during `docker build` as they will be exposed as a result of layer caching during image build. The secure way is to mount them into the image as **docker secrets** and then export it as environment variables, so that they aren't leaked. It can be done as follows:
-
--  Create secrets using the command
-```
-docker secret create
-```
-
-- Mount those secrets into `/run/secrets/` of the container
-```
-RUN --mount=type=secret,id=<YOUR_SECRET> \
-    export <YOUR_SECRET_ID>=$(cat /run/secrets/<YOUR_SECRET>)
-```
 
 #### ProTip to do the same in production environment
 
@@ -303,13 +254,7 @@ sagemaker._deploy(
 **Note:** <br>
 *Every AWS resources created for this project will be deleted after the pipeline is executed successfully. This is done on purpose, to restrict and limit any incurring additional cost!!*
 
-## Feedback
 
-If you have any feedback, please reach out to me at moulichandramouli81@gmail.com
-
-## Bug / Issues
-
-If you come across any bugs (or) issues related to code, model, implementation, results, pipeline etc, please feel free to open a [new issue here](https://github.com/kcm5750/Sentiment-analysis/issues/new) by describing your search query and expected result.
 
 ## References
 

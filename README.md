@@ -1,4 +1,4 @@
-# End-To-End Sentiment Analysis
+# Sentiment Analysis(End-to-End MLOps)
 This project is an end‑to‑end sentiment analysis system that ingests raw Twitter data, cleans and labels it, trains deep learning models, and deploys the best model to production on AWS. It is designed to showcase not just model building, but also real‑world MLOps practices such as data pipelines, experiment tracking, model versioning, and automated deployment
  
 
@@ -25,13 +25,20 @@ This project is an end‑to‑end sentiment analysis system that ingests raw Twi
 
 ## Project summary
 
-In a machine learning (ML) project, it comprises of a chain of tasks like data collection, pre-processing, transforming datasets, feature extraction, model training, model selection, evaluation, deployment. For a small-scale project, these tasks can be managed manually but, as the scalability and scope of the project increases, manual process is really a pain. The actual problem arises when the model has to be productionalized in order to make value out of it. MLOps defines various disciplines to nullify such problems and work efficiently. Thus, pipelines are crucial in an ML project and automating such end-to-end pipelines are also vital.
+This project builds an end-to-end sentiment analysis system using Twitter data: ETL pipelines, biLSTM model training, MLflow tracking, and AWS SageMaker deployment via CI/CD. Demonstrates full MLOps: Airflow orchestration, Docker containerization, behavioral testing, and automated releases.
+
 
 ## What I implemented
-Designed and orchestrated data and training pipelines using Apache Airflow.
-Built and trained a biLSTM‑based sentiment model with a BERT tokenizer, tracked with MLflow, and managed through an MLflow Model Registry.
-Containerized services with Docker and deployed the model to AWS SageMaker using CI/CD via GitHub Actions, S3, ECR, and EC2.
-Integrated behavioral testing (Checklist) and benchmarking to compare model versions before promotion to production
+- Designed and orchestrated data/training pipelines using Apache Airflow.
+- Built/trained biLSTM model with BERT tokenizer, tracked via MLflow + Model Registry.
+- Containerized with Docker; deployed to AWS SageMaker via GitHub Actions CI/CD (S3/ECR/EC2).
+- Added behavioral testing (Checklist) + benchmarking before production promotion.
+- 
+## Quick local demo
+1. `git clone` repo + `pip install -r requirements.txt`
+2. Run `jupyter notebook` on sample data in `/notebooks/`
+3. Train/evaluate biLSTM model in 5 mins (no AWS needed).
+
 ## Description
 
 The project is a concoction of research (sentiment analysis, NLP, BERT, biLSTM), development (text normalization, ETL, transformation, deep neural network training, evaluation, model testing) and deployment (building and packaging model artifacts, tracking, docker, workflows, pipelines, cloud) by integrating CI/CD pipelines with automated releases.

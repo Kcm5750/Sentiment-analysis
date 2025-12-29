@@ -33,7 +33,7 @@ This project builds an end-to-end sentiment analysis system using Twitter data: 
 - Built/trained biLSTM model with BERT tokenizer, tracked via MLflow + Model Registry.
 - Containerized with Docker; deployed to AWS SageMaker via GitHub Actions CI/CD (S3/ECR/EC2).
 - Added behavioral testing (Checklist) + benchmarking before production promotion.
-- 
+  
 ## Quick local demo
 1. `git clone` repo + `pip install -r requirements.txt`
 2. Run `jupyter notebook` on sample data in `/notebooks/`

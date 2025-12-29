@@ -1,6 +1,6 @@
 # End-To-End Sentiment Analysis
-
-This project promulgates an **automated end-to-end ML pipeline** that trains a **bi-directional LSTM** network for sentiment analysis task, **tracks** experiments, **pushes** trained models to **model registry**, benchmark them by means of **model testing** and **evaluation**, pushes the best model into production followed by **dockerizing** the production model artifacts into a deployable image and **deploys** the same into cloud instance via **CI/CD**. 
+This project is an end‑to‑end sentiment analysis system that ingests raw Twitter data, cleans and labels it, trains deep learning models, and deploys the best model to production on AWS. It is designed to showcase not just model building, but also real‑world MLOps practices such as data pipelines, experiment tracking, model versioning, and automated deployment
+ 
 
 ## Author
  
@@ -23,10 +23,15 @@ This project promulgates an **automated end-to-end ML pipeline** that trains a *
 </div>
 <br>
 
-## Motivation
+## Project summary
 
 In a machine learning (ML) project, it comprises of a chain of tasks like data collection, pre-processing, transforming datasets, feature extraction, model training, model selection, evaluation, deployment. For a small-scale project, these tasks can be managed manually but, as the scalability and scope of the project increases, manual process is really a pain. The actual problem arises when the model has to be productionalized in order to make value out of it. MLOps defines various disciplines to nullify such problems and work efficiently. Thus, pipelines are crucial in an ML project and automating such end-to-end pipelines are also vital.
 
+## What I implemented
+Designed and orchestrated data and training pipelines using Apache Airflow.
+Built and trained a biLSTM‑based sentiment model with a BERT tokenizer, tracked with MLflow, and managed through an MLflow Model Registry.
+Containerized services with Docker and deployed the model to AWS SageMaker using CI/CD via GitHub Actions, S3, ECR, and EC2.
+Integrated behavioral testing (Checklist) and benchmarking to compare model versions before promotion to production
 ## Description
 
 The project is a concoction of research (sentiment analysis, NLP, BERT, biLSTM), development (text normalization, ETL, transformation, deep neural network training, evaluation, model testing) and deployment (building and packaging model artifacts, tracking, docker, workflows, pipelines, cloud) by integrating CI/CD pipelines with automated releases.

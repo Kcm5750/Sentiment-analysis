@@ -42,10 +42,10 @@ This project builds an end-to-end sentiment analysis system using Twitter data: 
 ## Scaling & Production
 
 **Current scalable patterns implemented:**
-- Airflow DAGs for modular ETL/training (handles 10K+ tweets easily) [page:1]
-- Remote MLflow on EC2 + S3 artifacts (centralized, multi-user) [page:1]
-- Docker + ECR + SageMaker endpoints (auto-scales with traffic) [page:1]
-- GitHub Actions CI/CD (repeatable deployments) [page:1]
+- Airflow DAGs for modular ETL/training (handles 10K+ tweets easily) 
+- Remote MLflow on EC2 + S3 artifacts (centralized, multi-user) 
+- Docker + ECR + SageMaker endpoints (auto-scales with traffic) 
+- GitHub Actions CI/CD (repeatable deployments)
 
 
 

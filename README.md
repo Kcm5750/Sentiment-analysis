@@ -37,9 +37,6 @@ This project builds an end-to-end sentiment analysis system using Twitter data: 
 - Behavioral testing (Checklist) before registry promotion 
 - Snowflake for scalable data warehouse integration 
 
-## Description
-
-The project is a concoction of research (sentiment analysis, NLP, BERT, biLSTM), development (text normalization, ETL, transformation, deep neural network training, evaluation, model testing) and deployment (building and packaging model artifacts, tracking, docker, workflows, pipelines, cloud) by integrating CI/CD pipelines with automated releases.
 
 | ![flowchart](./images/architecture_diagram.jpeg) |
 |:--:|

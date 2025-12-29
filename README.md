@@ -39,6 +39,17 @@ This project builds an end-to-end sentiment analysis system using Twitter data: 
 2. Run `jupyter notebook` on sample data in `/notebooks/`
 3. Train/evaluate biLSTM model in 5 mins (no AWS needed).
 
+## Scaling & Production
+
+**Current scalable patterns implemented:**
+- Airflow DAGs for modular ETL/training (handles 10K+ tweets easily) [page:1]
+- Remote MLflow on EC2 + S3 artifacts (centralized, multi-user) [page:1]
+- Docker + ECR + SageMaker endpoints (auto-scales with traffic) [page:1]
+- GitHub Actions CI/CD (repeatable deployments) [page:1]
+
+
+
+
 ## Description
 
 The project is a concoction of research (sentiment analysis, NLP, BERT, biLSTM), development (text normalization, ETL, transformation, deep neural network training, evaluation, model testing) and deployment (building and packaging model artifacts, tracking, docker, workflows, pipelines, cloud) by integrating CI/CD pipelines with automated releases.

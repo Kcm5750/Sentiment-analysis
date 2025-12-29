@@ -47,8 +47,10 @@ This project builds an end-to-end sentiment analysis system using Twitter data: 
 - Docker + ECR + SageMaker endpoints (auto-scales with traffic) 
 - GitHub Actions CI/CD (repeatable deployments)
 
-
-
+**Production hardening (implemented insights):**
+- Docker secrets volumes → `docker stack deploy` for secure config 
+- Behavioral testing (Checklist) before registry promotion 
+- Snowflake for scalable data warehouse integration 
 
 ## Description
 
